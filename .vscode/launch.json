@@ -11,7 +11,7 @@
             "cwd": "${workspaceFolder}",
             "runtimeExecutable": "npm",
             "runtimeArgs": [
-                "run-script", "debug"
+                "run-script", "dev:debug"
             ],
             "port": 9229
         }

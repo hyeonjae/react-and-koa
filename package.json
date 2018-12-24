@@ -8,7 +8,9 @@
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "dev:server": "cd client && yarn build && cd .. && yarn start",
-    "start": "node server.js"
+    "dev:debug": "concurrently --kill-others-on-fail \"yarn debug\" \"yarn client\"",
+    "start": "node server.js",
+    "debug": "node --nolazy --inspect-brk=9229 server.js"
   },
   "dependencies": {
     "koa": "^2.6.2",
