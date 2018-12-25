@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
 
 class App extends Component {
+  onClick = async () => {
+    alert('click');
+    const res = await axios.get('/api/hello');
+    console.log(res && res.data);
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,6 +18,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
+          <button onClick={this.onClick}>click!</button>
           <a
             className="App-link"
             href="https://reactjs.org"
