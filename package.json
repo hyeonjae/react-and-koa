@@ -10,7 +10,9 @@
     "dev:server": "cd client && yarn build && cd .. && yarn start",
     "dev:debug": "concurrently --kill-others-on-fail \"yarn debug\" \"yarn client\"",
     "start": "node server.js",
-    "debug": "node --nolazy --inspect-brk=9229 server.js"
+    "debug": "node --nolazy --inspect-brk=9229 server.js",
+    "dev2": "concurrently --kill-others-on-fail \"yarn server\" \"yarn frontend\"",
+    "frontend": "cd frontend && yarn start"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
