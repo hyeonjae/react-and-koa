@@ -3,6 +3,9 @@ const path = require('path');
 const bodyParser = require('koa-bodyparser');
 const serve = require('koa-static');
 const Router = require('koa-router');
+const cors = require('koa2-cors');
+
+require('dotenv').config();
 
 // const app = express();
 const port = process.env.PORT || 4000;
@@ -28,7 +31,19 @@ if (process.env.NODE_ENV === 'production') {
   app.use(serve(path.join(__dirname, 'client/build')));
 }
 
+app.use(cors({
+  origin: function(ctx) {
+    return '*';
+  },
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+  maxAge: 5,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'DELETE'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+}));
 app.use(bodyParser());
 app.use(router.routes());
+
+require('./server/passport.js').setup(app);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

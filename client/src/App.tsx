@@ -4,8 +4,14 @@ import './App.css';
 import axios from 'axios';
 
 class App extends Component {
-  onClick = async () => {
-    alert('click');
+  login = async () => {
+    // alert('click');
+    const res = await axios.get('/auth/google');
+    console.log(res && res.data);
+  }
+
+  hello = async () => {
+    // alert('click');
     const res = await axios.get('/api/hello');
     console.log(res && res.data);
   }
@@ -18,7 +24,8 @@ class App extends Component {
           <p>
             Edit <code>src/App.tsx</code> and save to reload.
           </p>
-          <button onClick={this.onClick}>click!</button>
+          <a onClick={this.login}>login</a>
+          <a onClick={this.hello}>hello</a>
           <a
             className="App-link"
             href="https://reactjs.org"

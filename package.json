@@ -15,12 +15,20 @@
     "frontend": "cd frontend && yarn start"
   },
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "@types/axios": "^0.14.0",
     "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
     "koa": "^2.6.2",
     "koa-bodyparser": "^4.2.1",
+    "koa-passport": "^4.1.1",
     "koa-router": "^7.4.0",
-    "koa-static": "^5.0.0"
+    "koa-session": "^5.10.1",
+    "koa-static": "^5.0.0",
+    "koa2-cors": "^2.0.6",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0",
+    "passport-google-oauth-jwt": "^0.2.3"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
